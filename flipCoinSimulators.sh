@@ -1,12 +1,25 @@
-#!/bin/bash -x
- for((i=0;i<2;i++))
+#!/bin/bash 
+read -p "enter the number of times coin to be flipped " num
+head=1
+tail=0
+headcount=0
+tailcount=0
+for ((i=0;i<=$num;i++)) 
 do
-	randomCheck=$((RANDOM%2))
+	
+	randomcheck=$((RANDOM%2))
+	case $randomcheck in
+	
+	$head)    
+		((headcount++))
+		;;
+	$tail)
+		((tailcount++))
+		;;
 
+esac
 done
-if [ $randomCheck -eq 0 ]
-then
-	echo "flipped coin is head"
-else
-	echo "flipped coin is tail"
-fi
+echo $headcount
+echo $tailcount
+
+	
